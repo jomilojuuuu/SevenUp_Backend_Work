@@ -1,0 +1,6 @@
+@SevenUp_HostAddress = http://localhost:5022
+
+GET {{SevenUp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
