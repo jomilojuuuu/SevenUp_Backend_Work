@@ -1,5 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Seven_up.Data;
+using Seven_up.Interface;
+using Seven_up.Services;
 
-namespace SevenUp
+namespace Seven_up
 {
     public class Program
     {
@@ -13,6 +17,15 @@ namespace SevenUp
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<drinkDb>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+                    ?? throw new InvalidOperationException("Connection string not found"));
+            });
+
+            builder.Services.AddScoped<IProduct, ProductService>()
+                            .AddScoped<ICategory, CategoryService>();
 
             var app = builder.Build();
 
