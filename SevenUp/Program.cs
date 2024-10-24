@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Seven_up.Data;
-using Seven_up.Interface;
 using Seven_up.Services;
+using SevenUp.Data;
+using SevenUp.Interface;
 
 namespace Seven_up
 {

@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Seven_up.Interface;
-using Seven_up.Library.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using SevenUp.Interface;
+using SevenUpClassLib.Models;
 
-namespace Seven_up.Controllers
+namespace SevenUp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,7 +21,7 @@ namespace Seven_up.Controllers
         {
             if (model is null) return BadRequest("Model is null");
             var products = await adminProduct.EditProductAsync(model);
-            return Ok(products); 
+            return Ok(products);
         }
 
 

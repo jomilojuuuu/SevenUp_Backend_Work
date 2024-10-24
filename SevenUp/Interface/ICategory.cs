@@ -1,6 +1,6 @@
-﻿using Seven_up.Library.Models;
+﻿using SevenUpClassLib.Models;
 
-namespace Seven_up.Interface
+namespace SevenUp.Interface
 {
     public interface ICategory
     {

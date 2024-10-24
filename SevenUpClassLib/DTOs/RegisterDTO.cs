@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Seven_up.Library.DTOs
+namespace SevenUpClassLib.DTOs
 {
     public class RegisterDTO : LoginDTO
     {

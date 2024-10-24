@@ -1,4 +1,4 @@
-﻿namespace Seven_up.Library.Models
+﻿namespace SevenUpClassLib.Models
 {
     public class Product
     {

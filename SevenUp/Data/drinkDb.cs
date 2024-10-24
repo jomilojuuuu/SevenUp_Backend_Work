@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Seven_up.Library.Models;
+using SevenUpClassLib.Models;
 
-namespace Seven_up.Data
+namespace SevenUp.Data
 {
     public class drinkDb(DbContextOptions options) : DbContext(options)
     {

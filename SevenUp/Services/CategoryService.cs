@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
-using Seven_up.Data;
-using Seven_up.Interface;
-using Seven_up.Library.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SevenUp.Data;
+using SevenUp.Interface;
+using SevenUpClassLib.Models;
 
 namespace Seven_up.Services
 {

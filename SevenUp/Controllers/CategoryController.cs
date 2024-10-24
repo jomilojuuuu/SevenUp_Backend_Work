@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Seven_up.Interface;
-using Seven_up.Library.Models;
+using SevenUp.Interface;
+using SevenUpClassLib.Models;
 
-namespace Seven_up.Controllers
+namespace SevenUp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
