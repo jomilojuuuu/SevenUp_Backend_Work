@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Seven_up.Services;
 using SevenUp.Data;
 using SevenUp.Interface;
+using SevenUp.Services;
 
 namespace Seven_up
 {
@@ -25,7 +26,8 @@ namespace Seven_up
             });
 
             builder.Services.AddScoped<IProduct, ProductService>()
-                            .AddScoped<ICategory, CategoryService>();
+                            .AddScoped<ICategory, CategoryService>()
+                            .AddScoped<IAdminProduct, AdminProductService>();
 
             var app = builder.Build();
 
