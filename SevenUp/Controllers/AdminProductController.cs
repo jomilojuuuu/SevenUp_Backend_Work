@@ -8,7 +8,7 @@ namespace SevenUp.Controllers
     [ApiController]
     public class AdminProductController(IAdminProduct adminProduct) : ControllerBase
     {
-        [HttpGet("Add-Product")]
+        [HttpPost("Add-Product")]
         public async Task<ActionResult<Product>> AddProduct(Product model)
         {
             if (model is null) return BadRequest("Model is null");

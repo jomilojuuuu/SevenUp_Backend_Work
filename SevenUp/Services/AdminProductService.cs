@@ -8,17 +8,18 @@ namespace SevenUp.Services
     public class AdminProductService(drinkDb drinkDb) : IAdminProduct
     {
         private readonly drinkDb _drinkDb = drinkDb;
+
         public async Task<Product> AddProductAsync(Product model)
         {
             if (model is null) return null!;
             var product = await _drinkDb.Products.FirstOrDefaultAsync(x => x.Name!.ToLower()!.Equals(model.Name!.ToLower()));
-            if (product != null)
+            if (product == null)
             {
                 _drinkDb.Products.Add(model);
                 await _drinkDb.SaveChangesAsync();
-                return product;
+                return model;
             }
-            return model;
+            return null!;
         }
 
         public async Task<Product> DeleteProductAsync(int id)
