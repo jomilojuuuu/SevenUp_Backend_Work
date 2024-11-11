@@ -12,8 +12,20 @@ namespace Seven_up
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
+
+            // Configure CORS to allow requests from the Next.js frontend
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000") // Update this if you deploy to production
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -25,9 +37,13 @@ namespace Seven_up
             });
 
             builder.Services.AddScoped<IProduct, ProductService>()
-                            .AddScoped<ICategory, CategoryService>();
+                            .AddScoped<ICategory, CategoryService>()
+                            .AddScoped<IAdminProduct, AdminProductService>();
 
             var app = builder.Build();
+
+
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -38,8 +54,10 @@ namespace Seven_up
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            // Enable CORS
+            app.UseCors("AllowFrontend");
 
+            app.UseAuthorization();
 
             app.MapControllers();
 

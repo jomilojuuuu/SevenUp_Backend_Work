@@ -8,7 +8,7 @@ namespace SevenUp.Controllers
     [ApiController]
     public class CategoryController(ICategory categoryService) : ControllerBase
     {
-        [HttpGet("Add-Cateogry")]
+        [HttpPost("Add-Cateogry")]
         public async Task<ActionResult<Category>> AddCategory(Category model)
         {
             if (model is null) return BadRequest("Model is empty");
@@ -16,7 +16,7 @@ namespace SevenUp.Controllers
             return Ok(category);
         }
 
-        [HttpPost("Edit-Category")]
+        [HttpPut("Edit-Category")]
         public async Task<ActionResult<Category>> EditCategoryAsync(Category model)
         {
             if (model is null) return BadRequest("Model is null");
