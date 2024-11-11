@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Seven_up.Services;
 using SevenUp.Data;
 using SevenUp.Interface;
+using SevenUp.Services;
 
 namespace Seven_up
 {
